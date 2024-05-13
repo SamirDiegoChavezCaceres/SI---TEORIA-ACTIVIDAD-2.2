@@ -22,25 +22,11 @@ class VignereAlgorithm(Algorithm):
     def execute(self, mensaje):
         """ Método para descifrar un mensaje
         """
-        mensaje = self.clean_text(mensaje)
         mensaje = self.vigenere_decoder(mensaje, self.key)
         return mensaje
-
-    def clean_text(self, text):
-        """ Método para limpiar un texto
-        """
-        tildes = {'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u', 'ü': 'u'}
-        resultado = ''
-
-        # Eliminar signos de puntuación y convertir a minúsculas
-        clean_text = re.sub(r'[^\w\s]', '', text.lower())
-        # Reemplazar letras con tildes por letras básicas
-        for c in clean_text:
-            resultado += tildes.get(c, c)
-        return resultado.strip().replace(" ", "")
-
+        
     def vigenere_decoder(self, text, key):
-        """ Método para cifrar un texto
+        """ Método para descifrar un texto
         """
         alphabet = self.alphabet
         decrypted_text = ''
