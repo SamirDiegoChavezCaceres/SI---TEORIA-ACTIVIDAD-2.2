@@ -9,6 +9,11 @@ class AtbashAlgorithm(Algorithm):
     """ Clase concreta de un algoritmo de cifrado Atbash
     """
 
+    alphabet = None
+
+    def __init__(self, alphabet):
+        self.alphabet = alphabet
+
     def execute(self, mensaje):
         """ Método para cifrar un mensaje
         """

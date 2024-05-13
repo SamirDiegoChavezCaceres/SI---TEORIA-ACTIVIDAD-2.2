@@ -8,7 +8,8 @@ from algorithms.atbash import AtbashAlgorithm
 from algorithms.vignere import VignereAlgorithm
 
 
-CLAVE_VIGNERE = "CIFRADO"
+ALPHABET = "abcdefghijklmnñopqrstuvwxyz"
+VIGNERE_KEY = "CIFRADO"
 
 
 def call_algorithm(widget, algorithm, message):
@@ -25,16 +26,16 @@ def open_window(algorithm):
     """
     secondary_window = Toplevel()
     secondary_window.title("Algorithm Window")
-    secondary_window.geometry("300x150")
+    secondary_window.geometry("400x150")
 
     text_label = Label(secondary_window, text="Texto a cifrar:")
     text_label.pack()
-    text_entry = Entry(secondary_window)
+    text_entry = Entry(secondary_window,  width=50)
     text_entry.pack()
 
     # Create a button to close (destroy) this window.
     cipher_label = Label(secondary_window, text="Texto a cifrado:")
-    cipher_entry = Entry(secondary_window)
+    cipher_entry = Entry(secondary_window,  width=50)
     button_close = ttk.Button(
         secondary_window,
         text="Ejecutar",
@@ -61,14 +62,23 @@ question_label.pack()
 atbash_button = Button(
     root,
     text="Cifrado Atbash",
-    command=lambda:open_window(AtbashAlgorithm())
+    command=lambda:open_window(
+        AtbashAlgorithm(
+            alphabet=ALPHABET
+        )
+    )
 )
 atbash_button.pack()
 
 vignere_button = Button(
     root,
     text="Descifrado Vignere",
-    command=lambda:open_window(VignereAlgorithm(clave=CLAVE_VIGNERE))
+    command=lambda:open_window(
+        VignereAlgorithm(
+            alphabet=ALPHABET,
+            key=VIGNERE_KEY
+        )
+    )
 )
 vignere_button.pack()
 
