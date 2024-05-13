@@ -23,7 +23,7 @@ class VignereAlgorithm(Algorithm):
         """ Método para descifrar un mensaje
         """
         mensaje = self.clean_text(mensaje)
-        mensaje = self.vigenere_cipher(mensaje, self.key)
+        mensaje = self.vigenere_decoder(mensaje, self.key)
         return mensaje
 
     def clean_text(self, text):
