@@ -39,23 +39,23 @@ class VignereAlgorithm(Algorithm):
             resultado += tildes.get(c, c)
         return resultado.strip().replace(" ", "")
 
-    def vigenere_cipher(self, text, key):
+    def vigenere_decoder(self, text, key):
         """ Método para cifrar un texto
         """
         alphabet = self.alphabet
-        encrypted_text = ''
+        decrypted_text = ''
         key_index = 0
         for char in text:
             if char == ' ':
-                encrypted_text += ' ' #Cuando es espacio ya no hace mas, pasa
+                decrypted_text += ' '
                 continue
             char_index = alphabet.find(char)
             if char_index != -1:
                 key_char = key[key_index % len(key)]
                 key_index += 1
                 key_char_index = alphabet.find(key_char)
-                encrypted_index = (char_index + key_char_index) % len(alphabet)
-                encrypted_text += alphabet[encrypted_index]
+                decrypted_index = (char_index - key_char_index) % len(alphabet)
+                decrypted_text += alphabet[decrypted_index]
             else:
-                encrypted_text += char
-        return encrypted_text
+                decrypted_text += char
+        return decrypted_text
