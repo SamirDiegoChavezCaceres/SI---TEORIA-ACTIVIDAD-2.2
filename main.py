@@ -9,7 +9,7 @@ from algorithms.vignere import VignereAlgorithm
 
 
 ALPHABET = "abcdefghijklmnñopqrstuvwxyz"
-VIGNERE_KEY = "CIFRADO"
+VIGNERE_KEY = "CLAVE"
 
 
 def call_algorithm(widget, algorithm, message):
@@ -28,13 +28,13 @@ def open_window(algorithm):
     secondary_window.title("Algorithm Window")
     secondary_window.geometry("400x150")
 
-    text_label = Label(secondary_window, text="Texto a cifrar:")
+    text_label = Label(secondary_window, text="Texto Entrada:")
     text_label.pack()
     text_entry = Entry(secondary_window,  width=50)
     text_entry.pack()
 
     # Create a button to close (destroy) this window.
-    cipher_label = Label(secondary_window, text="Texto a cifrado:")
+    cipher_label = Label(secondary_window, text="Texto resultante:")
     cipher_entry = Entry(secondary_window,  width=50)
     button_close = ttk.Button(
         secondary_window,

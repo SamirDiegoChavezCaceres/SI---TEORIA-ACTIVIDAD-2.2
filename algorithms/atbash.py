@@ -2,6 +2,7 @@
 """
 
 
+import re
 from .algorithm import Algorithm
 
 
@@ -32,4 +33,3 @@ class AtbashAlgorithm(Algorithm):
         for c in clean_text:
             resultado += tildes.get(c, c)
         return resultado.strip().replace(" ", "")
-

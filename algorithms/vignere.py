@@ -2,9 +2,6 @@
 """
 
 
-import re
-
-
 from .algorithm import Algorithm
 
 
@@ -24,7 +21,7 @@ class VignereAlgorithm(Algorithm):
         """
         mensaje = self.vigenere_decoder(mensaje, self.key)
         return mensaje
-        
+
     def vigenere_decoder(self, text, key):
         """ Método para descifrar un texto
         """
