@@ -9,7 +9,7 @@ from algorithms.vignere import VignereAlgorithm
 
 
 ALPHABET = "abcdefghijklmnñopqrstuvwxyz"
-VIGNERE_KEY = "CLAVE"
+VIGNERE_KEY = "clave"
 
 
 def call_algorithm(widget, algorithm, message):

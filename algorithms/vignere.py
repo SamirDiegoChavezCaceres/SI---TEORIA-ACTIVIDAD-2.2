@@ -23,20 +23,16 @@ class VignereAlgorithm(Algorithm):
         return mensaje
 
     def vigenere_decoder(self, text, key):
-        """ Método para descifrar un texto
-        """
+        """ Método para descifrar un texto """
         alphabet = self.alphabet
         decrypted_text = ''
         key_index = 0
         for char in text:
-            if char == ' ':
-                decrypted_text += ' '
-                continue
             char_index = alphabet.find(char)
             if char_index != -1:
                 key_char = key[key_index % len(key)]
                 key_index += 1
-                key_char_index = alphabet.find(key_char)
+                key_char_index = alphabet.find(key_char) + 1
                 decrypted_index = (char_index - key_char_index) % len(alphabet)
                 decrypted_text += alphabet[decrypted_index]
             else:
