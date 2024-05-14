@@ -22,7 +22,6 @@ class AtbashAlgorithm(Algorithm):
         """ Método para cifrar un mensaje
         """
         mensaje = self.clean_text(mensaje)
-        print ("Cleand:" + mensaje)
         mensaje = self.encrypt(mensaje)
         return mensaje
 
@@ -51,8 +50,6 @@ class AtbashAlgorithm(Algorithm):
         for c in text:
             resultado += self.extraReplaces.get(c, c)
         
-   
-        
         resultado = self.remove_punctuation(resultado)
         return resultado
 
@@ -66,14 +63,11 @@ class AtbashAlgorithm(Algorithm):
                 encrypted_char = self.alphabet[len(self.alphabet) - 1 - original_index]
                 
                 # case sensitive
-                if(self.caseSensitive):
-                    if char.isupper():
-                        encrypted_message += encrypted_char.upper()
-                    else:
-                        encrypted_message += encrypted_char
-                        
+                if(self.caseSensitive and char.isupper()):
+                    encrypted_message += encrypted_char.upper() 
                 else:
                     encrypted_message += encrypted_char
+                    
             elif char == ' ':
                 encrypted_message += ' '
                 

@@ -14,7 +14,7 @@ TILDES_ATBASH = {
     'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u', 'ü': 'u',
     'Á': 'A', 'É': 'E', 'Í': 'I', 'Ó': 'O', 'Ú': 'U', 'Ü': 'U'
 }
-CASE_SENSITIVE_ATBASH = True
+CASE_SENSITIVE_ATBASH = False
 
 def call_algorithm(widget, algorithm, message):
     """ Call the algorithm to execute the message.
