@@ -15,6 +15,7 @@ TILDES_ATBASH = {
     'Á': 'A', 'É': 'E', 'Í': 'I', 'Ó': 'O', 'Ú': 'U', 'Ü': 'U'
 }
 CASE_SENSITIVE_ATBASH = False
+ATBASH_SPACES_TO = ""
 
 def call_algorithm(widget, algorithm, message):
     """ Call the algorithm to execute the message.
@@ -70,7 +71,8 @@ atbash_button = Button(
         AtbashAlgorithm(
             alphabet=ALPHABET, 
             extraReplaces= TILDES_ATBASH,
-            caseSensitive=CASE_SENSITIVE_ATBASH
+            caseSensitive=CASE_SENSITIVE_ATBASH,
+            spacesTo=ATBASH_SPACES_TO
         )
     )
 )

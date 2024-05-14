@@ -13,10 +13,11 @@ class AtbashAlgorithm(Algorithm):
     alphabet = None
     extraReplaces = None
 
-    def __init__(self, alphabet, extraReplaces={}, caseSensitive=False):
+    def __init__(self, alphabet, extraReplaces={}, caseSensitive=False, spacesTo=""):
         self.alphabet = alphabet
         self.extraReplaces = extraReplaces
         self.caseSensitive = caseSensitive
+        self.spacesTo = spacesTo
 
     def execute(self, mensaje):
         """ Método para cifrar un mensaje
@@ -69,7 +70,7 @@ class AtbashAlgorithm(Algorithm):
                     encrypted_message += encrypted_char
                     
             elif char == ' ':
-                encrypted_message += ' '
+                encrypted_message += self.spacesTo
                 
         return encrypted_message
     
